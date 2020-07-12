@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+       
+       <form >
+          <p>
+            <mat-form-field>
+              <input type="text" matInput placeholder="Username" name = "username" [(ngModel)] = "details.username" >
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field>
+              <input type="password" matInput placeholder="Password" name = "password" [(ngModel)] = "details.password" >
+            </mat-form-field>
+          </p>
+
+          <div class="button">
+            
+          </div>
+          <div class="button">
+            <button mat-button (click)="googleSignIn()">Gmail</button>
+            <button mat-button (click)="onLogin()">Login</button>
+            <button mat-button (click)="submit()">register</button>
+          </div>
+
+        </form>
+      </mat-card-content>
+</mat-card>
+

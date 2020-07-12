@@ -1,0 +1,70 @@
+<mat-card>
+  <div class="button">
+    <button mat-button (click)="signOut()">sighOut</button>
+  </div>
+  <mat-card-title>MARVEL</mat-card-title>
+    <mat-card-content>
+     
+     <form >
+        <p>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Stone Type" name ="searchData" [(ngModel)]="searchData" (keydown)="search($event)" >
+          </mat-form-field>
+        </p>
+
+        <mat-list role="list" *ngIf="liveSearch.length>0">
+          <mat-list-item role="listitem" *ngFor="let ls of liveSearch" > <div (click)="addtoList(ls)" style="cursor:pointer"><b>{{ ls.stone }} :</b> <span> {{ ls.description }} </span> </div></mat-list-item>
+        </mat-list>
+        
+          <mat-list role="list" *ngIf="liveSearch?.length < 1 && (product?.length < 1 || searchData?.length > 0)">
+            <mat-list-item role="listitem"  > <b>NO RECORDS :</b> <span>Please provide input for search</span></mat-list-item>
+          </mat-list>
+        
+        <div *ngIf="operation" style="margin-bottom: 20%;">
+          <mat-card-title>{{operationText}}</mat-card-title>
+          <p>
+            <mat-form-field>
+              <input type="text" matInput placeholder="Stone Type" name ="stone" [(ngModel)]="marvelChangeObj.stone" required>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <input type="text" matInput placeholder="Stone Description" name ="description" [(ngModel)]="marvelChangeObj.description">
+            </mat-form-field>
+          </p>
+
+          <div class="button">
+            <button mat-button (click)="cancel(marvelChangeObj)">CANCEL</button>
+            <button mat-button (click)="update(marvelChangeObj,operationText)">{{operationText}}</button>
+          </div>
+        </div>
+
+      <div *ngIf="product?.length > 0">
+        <mat-card-title style="font-size: 15px;">ALL COLLECTED STONES</mat-card-title>  
+        <mat-nav-list>
+          <mat-list-item (click)="trigger.openMenu()" *ngFor="let pro of product">
+            <div mat-line>
+              {{ pro.stone }}
+            </div>
+            <p mat-line>
+              {{ pro.description }}
+            </p>
+            <button mat-icon-button #trigger=matMenuTrigger [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="action('ADD',pro)">add</button>
+            <button mat-menu-item (click)="action('UPDATE',pro)">update</button>
+            <button mat-menu-item (click)="action('DELETE',pro)">delete</button>
+          </mat-menu>
+          </mat-list-item>
+          
+        </mat-nav-list>
+      </div>
+      </form>
+    </mat-card-content>
+  
+  <div class="wrapper">
+    <div><mat-spinner [style.display]="loading ? 'block' : 'none'" ></mat-spinner></div>
+  </div>
+</mat-card>

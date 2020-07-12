@@ -1,0 +1,57 @@
+.basic-container {
+  height : 0%
+}
+.inner-container {
+   
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+.wrapper {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    height: calc(40vh - 20px);
+  }
+  .inner {
+    color: white;
+    padding: 12px;
+  }
+  .button{
+      float: right;
+  }
+
+ 
+  :host {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+  mat-card {
+    width:50%;
+  }
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  .error {
+    padding: 16px;
+    width: 300px;
+    color: white;
+    background-color: red;
+  }
+
+  .button {
+    display: flex;
+    justify-content: flex-end;
+  }
