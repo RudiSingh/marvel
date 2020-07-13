@@ -26,7 +26,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
          to check it is added or deleted you need to do live search. 
 
          
-## 7 . sighOut button to logout and redirect to login page. 
+## 7 . signOut button to logout and redirect to login page. 
 
 
 ## npm install required for projects. 
